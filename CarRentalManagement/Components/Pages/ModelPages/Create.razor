@@ -36,9 +36,9 @@
                 <ValidationMessage For="() => Model.CreatedBy" class="text-danger" /> 
             </div>        
             <div class="mb-3">
-                <label for="updated" class="form-label">Updated:</label> 
-                <InputText id="updated" @bind-Value="Model.Updated" class="form-control" /> 
-                <ValidationMessage For="() => Model.Updated" class="text-danger" /> 
+                <label for="updatedby" class="form-label">UpdatedBy:</label> 
+                <InputText id="updatedby" @bind-Value="Model.UpdatedBy" class="form-control" /> 
+                <ValidationMessage For="() => Model.UpdatedBy" class="text-danger" /> 
             </div>        
             <button type="submit" class="btn btn-primary">Create</button>
         </EditForm>

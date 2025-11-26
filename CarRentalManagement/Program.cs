@@ -3,10 +3,14 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using CarRentalManagement.Data;
 
+
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContextFactory<CarRentalManagementContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("CarRentalManagementContext") ?? throw new InvalidOperationException("Connection string 'CarRentalManagementContext' not found.")));
-
+/*
+builder.Services.AddDbContextFactory<CarRentalManagementContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("CarRentalManagementContext") ?? throw new InvalidOperationException("Connection string 'CarRentalManagementContext' not found.")));
+*/
 builder.Services.AddQuickGridEntityFrameworkAdapter();
 
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();

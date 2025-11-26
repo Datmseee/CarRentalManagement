@@ -36,9 +36,9 @@
                 <ValidationMessage For="() => Colour.CreatedBy" class="text-danger" /> 
             </div>        
             <div class="mb-3">
-                <label for="updated" class="form-label">Updated:</label> 
-                <InputText id="updated" @bind-Value="Colour.Updated" class="form-control" /> 
-                <ValidationMessage For="() => Colour.Updated" class="text-danger" /> 
+                <label for="updatedby" class="form-label">UpdatedBy:</label> 
+                <InputText id="updatedby" @bind-Value="Colour.UpdatedBy" class="form-control" /> 
+                <ValidationMessage For="() => Colour.UpdatedBy" class="text-danger" /> 
             </div>        
             <button type="submit" class="btn btn-primary">Create</button>
         </EditForm>

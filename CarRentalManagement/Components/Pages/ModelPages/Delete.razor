@@ -34,8 +34,8 @@
             <dd class="col-sm-10">@model.CreatedBy</dd>
         </dl>
         <dl class="row">
-            <dt class="col-sm-2">Updated</dt>
-            <dd class="col-sm-10">@model.Updated</dd>
+            <dt class="col-sm-2">UpdatedBy</dt>
+            <dd class="col-sm-10">@model.UpdatedBy</dd>
         </dl>
         <EditForm method="post" Model="model" OnValidSubmit="DeleteModel" FormName="delete" Enhance>
             <button type="submit" class="btn btn-danger" disabled="@(model is null)">Delete</button> |

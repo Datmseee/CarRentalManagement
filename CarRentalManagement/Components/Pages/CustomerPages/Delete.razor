@@ -46,8 +46,8 @@
             <dd class="col-sm-10">@customer.CreatedBy</dd>
         </dl>
         <dl class="row">
-            <dt class="col-sm-2">Updated</dt>
-            <dd class="col-sm-10">@customer.Updated</dd>
+            <dt class="col-sm-2">UpdatedBy</dt>
+            <dd class="col-sm-10">@customer.UpdatedBy</dd>
         </dl>
         <EditForm method="post" Model="customer" OnValidSubmit="DeleteCustomer" FormName="delete" Enhance>
             <button type="submit" class="btn btn-danger" disabled="@(customer is null)">Delete</button> |
