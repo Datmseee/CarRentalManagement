@@ -16,24 +16,52 @@
             </NavLink>
         </div>
 
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="counter">
-                <span class="bi bi-plus-square-fill-nav-menu" aria-hidden="true"></span> Counter
-            </NavLink>
-        </div>
-
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="weather">
-                <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Weather
-            </NavLink>
-        </div>
         <AuthorizeView>
             <Authorized>
+                @* This section is visible to all Authenticated users (Admin and User) *@
                 <div class="nav-item px-3">
                     <NavLink class="nav-link" href="Account/Manage">
                         <span class="bi bi-person-fill-nav-menu" aria-hidden="true"></span> @context.User.Identity?.Name
                     </NavLink>
                 </div>
+
+                @* Start of Practice 103 implementation: Hide these links from normal users/non-admins. *@
+                <AuthorizeView Roles="Administrator" Context="innerContext">
+                    <div class="nav-item px-3">
+                        <NavLink class="nav-link" href="makes">
+                            <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span>Makes
+                        </NavLink>
+                    </div>
+                    <div class="nav-item px-3">
+                        <NavLink class="nav-link" href="models">
+                            <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Models
+                        </NavLink>
+                    </div>
+                    <div class="nav-item px-3">
+                        <NavLink class="nav-link" href="colours">
+                            <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Colours
+                        </NavLink>
+                    </div>
+                    <div class="nav-item px-3">
+                        <NavLink class="nav-link" href="vehicles">
+                            <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Vehicles
+                        </NavLink>
+                    </div>
+                </AuthorizeView>
+                @* End of Practice 103 implementation *@
+
+                @* These links are visible to all Authenticated users (Admin and User) *@
+                <div class="nav-item px-3">
+                    <NavLink class="nav-link" href="customers">
+                        <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Customers
+                    </NavLink>
+                </div>
+                <div class="nav-item px-3">
+                    <NavLink class="nav-link" href="bookings">
+                        <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Bookings
+                    </NavLink>
+                </div>
+
                 <div class="nav-item px-3">
                     <form action="Account/Logout" method="post">
                         <AntiforgeryToken />
@@ -45,6 +73,7 @@
                 </div>
             </Authorized>
             <NotAuthorized>
+                @* This section is visible to Unauthenticated users *@
                 <div class="nav-item px-3">
                     <NavLink class="nav-link" href="Account/Register">
                         <span class="bi bi-person-nav-menu" aria-hidden="true"></span> Register
@@ -57,12 +86,6 @@
                 </div>
             </NotAuthorized>
         </AuthorizeView>
-
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="samplepage">
-                <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Sample Page
-            </NavLink>
-        </div>
     </nav>
 </div>
 
@@ -84,5 +107,4 @@
     {
         NavigationManager.LocationChanged -= OnLocationChanged;
     }
-
 }
